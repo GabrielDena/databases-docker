@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb-db
+    restart: always
+    tty: true
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./dump:/dump
+    environment:
+      MARIADB_ROOT_PASSWORD: "root"
