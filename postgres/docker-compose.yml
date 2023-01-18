@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  mariadb:
+    image: postgres:15.1-alpine
+    container_name: postgres-db
+    restart: always
+    tty: true
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./dump:/dump
+    environment:
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "root"
